@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get '/posts/new' => 'posts#new'
   get '/posts' => 'posts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
