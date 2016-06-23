@@ -1,4 +1,8 @@
-<header>ThoughtPad</header>
+<h1><em>ThoughtPad</em></h1>
+
+<br/>
+<br/>
+<br/>
 
 <% @posts.each do |post| %>
 <article>
@@ -9,3 +13,5 @@
 </article>
 
 <% end %>
+
+<%= link_to 'Create New Post', new_post_path %>
