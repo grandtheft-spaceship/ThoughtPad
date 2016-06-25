@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :find_post, only: [:show, :edit, :update, :destroy ]
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -11,9 +11,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    current_user.posts.create(post_params)
+    post = current_user.posts.create(post_params)
 
-    redirect_to post_path(@post)
+    redirect_to post
   end
 
   def show
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
   def edit
     if @post.user != current_user
-      return render text: 'Not Allowed'
+      return render text: 'Not Allowed.'
     end
   end
 
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
     @post.update_attributes(post_params)
 
-    redirect_to post_path(@post)
+    redirect_to @post
   end
 
   def destroy
