@@ -13,6 +13,9 @@
   <p>
     <%= link_to "Read More...", post_path(post) %>
   </p>
+  <p><em>
+    Submitted on <%= post.created_at.strftime("%B %d, %Y") %>
+  </p></em>
 </article>
 
 <% end %>
