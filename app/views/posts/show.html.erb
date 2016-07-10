@@ -33,4 +33,35 @@
 <br/>
 <br/>
 
+<h2> Comments </h2>
+  <% @post.comments.each do |comment| %>
+    <p>
+      <%= comment.message %>
+    </p>
+
+    <% if comment.user.present? %>
+      <%= comment.user.email %>
+    <% end %>
+
+  <% end %>
+
+<br/>
+<br/>
+<br/>
+
+<h3> Leave A Comment </h3>
+  <%= form_for([@post, @post.comments.build]) do |f| %>
+    <p>
+      <%= f.label :message %>
+      <%= f.text_area :message %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+
+<br/>
+<br/>
+<br/>
+
 <%= link_to 'Back', posts_path %>

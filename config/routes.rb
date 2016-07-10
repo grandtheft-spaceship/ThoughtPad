@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   patch '/posts/:id' => 'posts#update'
   delete '/posts/:id' => 'posts#destroy'
 
+  post '/posts/:post_id/comments' => 'comments#create', :as => 'post_comments'
+
   root 'posts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
